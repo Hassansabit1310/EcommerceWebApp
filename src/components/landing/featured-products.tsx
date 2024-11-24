@@ -2,10 +2,54 @@ import { ProductCard } from "../products/products-crad"
 
 
 const featuredProducts = [
-  { id: 1, name: "Classic T-Shirt", price: 29.99, image: "/placeholder.svg?height=300&width=300&text=T-Shirt" },
-  { id: 2, name: "Denim Jeans", price: 59.99, image: "/placeholder.svg?height=300&width=300&text=Jeans" },
-  { id: 3, name: "Leather Jacket", price: 199.99, image: "/placeholder.svg?height=300&width=300&text=Jacket" },
-  { id: 4, name: "Sneakers", price: 89.99, image: "/placeholder.svg?height=300&width=300&text=Sneakers" },
+  {
+    id: 1,
+    title: "Classic T-Shirt",
+    price: 29.99,
+    description: "A timeless classic T-shirt, perfect for everyday wear.",
+    category: "Clothing",
+    image: "/placeholder.svg?height=300&width=300&text=T-Shirt",
+    rating: {
+      rate: 4.5,
+      count: 120,
+    },
+  },
+  {
+    id: 2,
+    title: "Denim Jeans",
+    price: 59.99,
+    description: "Stylish and durable denim jeans for a casual look.",
+    category: "Clothing",
+    image: "/placeholder.svg?height=300&width=300&text=Jeans",
+    rating: {
+      rate: 4.3,
+      count: 85,
+    },
+  },
+  {
+    id: 3,
+    title: "Leather Jacket",
+    price: 199.99,
+    description: "Premium leather jacket for a sleek and modern style.",
+    category: "Clothing",
+    image: "/placeholder.svg?height=300&width=300&text=Jacket",
+    rating: {
+      rate: 4.7,
+      count: 60,
+    },
+  },
+  {
+    id: 4,
+    title: "Sneakers",
+    price: 89.99,
+    description: "Comfortable and trendy sneakers for everyday use.",
+    category: "Footwear",
+    image: "/placeholder.svg?height=300&width=300&text=Sneakers",
+    rating: {
+      rate: 4.6,
+      count: 200,
+    },
+  },
 ]
 
 export function FeaturedProducts() {

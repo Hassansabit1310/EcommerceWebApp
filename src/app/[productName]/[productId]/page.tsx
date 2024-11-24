@@ -5,9 +5,7 @@ import { useParams } from 'next/navigation'
 
 import React from 'react'
 
-type Props = {
-    params:{productId:string,productName:string}
-}
+
 
 function ProductDescriptionPage() {
 

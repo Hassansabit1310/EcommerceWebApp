@@ -1,26 +1,12 @@
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navabr";
-import { Dialog } from "@/components/ui/dialog";
-import { DialogContent } from "@radix-ui/react-dialog";
-import SignInForm from "@/components/SignIn";
-import { useRef } from "react";
-import { Provider } from "react-redux";
-import { store } from "@/store/store";
+
 import { Providers } from "@/services/productApi/providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

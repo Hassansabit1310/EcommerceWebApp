@@ -2,13 +2,18 @@ import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
-interface Product {
+type Product = {
   id: number
-  title: string
-  price: number
-  image: string
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+      rate: number;
+      count: number;
+  }
 }
-
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Card className="w-64 h-114 flex flex-col">
