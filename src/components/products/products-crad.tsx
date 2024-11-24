@@ -16,7 +16,7 @@ type Product = {
 }
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Card className="w-64 h-114 flex flex-col">
+    <Card className="w-64 h-[500px] flex flex-col">
       <CardContent className="p-0 flex-grow">
         <div className="relative w-full h-80">
           <Image
