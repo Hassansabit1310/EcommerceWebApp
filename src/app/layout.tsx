@@ -1,6 +1,15 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Navbar } from "@/components/shared/Navabr";
+import { Dialog } from "@/components/ui/dialog";
+import { DialogContent } from "@radix-ui/react-dialog";
+import SignInForm from "@/components/SignIn";
+import { useRef } from "react";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
+import { Providers } from "@/services/productApi/providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,12 +32,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+ 
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className='space-y-4'
       >
-        {children}
+        <Navbar></Navbar>
+      
+        <Providers> {children}</Providers>
+       
+       
       </body>
     </html>
   );
