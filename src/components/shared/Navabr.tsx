@@ -49,8 +49,8 @@ export function Navbar() {
             </Link>
             <Dialog>
               <DialogTrigger>
-                <button className="bg-red-800 hover:bg-red-300 px-4 py-2 text-white rounded transition-colors w-full">
-                  Save changes
+                <button className="bg-black hover:bg-red-300 px-4 py-2 text-white rounded transition-colors w-full">
+                  Login
                 </button>
               </DialogTrigger>
               <DialogContent className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50">
@@ -86,8 +86,8 @@ export function Navbar() {
               </Link>
               <Dialog>
                 <DialogTrigger>
-                  <button className="bg-red-800 hover:bg-red-300 px-4 py-2 text-white rounded transition-colors w-full">
-                    Save changes
+                  <button className=" bg-black hover:bg-red-300 px-4 py-2 text-white rounded transition-colors w-full">
+                    Login
                   </button>
                 </DialogTrigger>
                 <DialogContent className="fixed  top-1/2 left-[43%] -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg z-50">
