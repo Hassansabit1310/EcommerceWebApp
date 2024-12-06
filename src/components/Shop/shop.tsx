@@ -14,6 +14,7 @@ import { Badge } from "@/components/ui/badge"
 import { Filter, SlidersHorizontal, Star, ShoppingCart, X } from 'lucide-react'
 import { useGetProductsQuery } from "@/services/productApi/productApi"
 import { useGetCategoriesQuery } from "@/services/categoryiesApi/categoryApi"
+import { useRouter } from "next/navigation"
 
 type Product = {
     id: number
@@ -29,16 +30,7 @@ type Product = {
   }
 
 // Sample product data
-const products = [
-  { id: 1, name: "Classic T-Shirt", price: 29.99, category: "Clothing", color: "White", size: "M", rating: 4.5, image: "/placeholder.svg?height=300&width=300&text=T-Shirt" },
-  { id: 2, name: "Denim Jeans", price: 59.99, category: "Clothing", color: "Blue", size: "32", rating: 4.2, image: "/placeholder.svg?height=300&width=300&text=Jeans" },
-  { id: 3, name: "Running Shoes", price: 89.99, category: "Footwear", color: "Black", size: "10", rating: 4.7, image: "/placeholder.svg?height=300&width=300&text=Shoes" },
-  { id: 4, name: "Leather Wallet", price: 39.99, category: "Accessories", color: "Brown", size: "One Size", rating: 4.0, image: "/placeholder.svg?height=300&width=300&text=Wallet" },
-  { id: 5, name: "Sunglasses", price: 79.99, category: "Accessories", color: "Black", size: "One Size", rating: 4.3, image: "/placeholder.svg?height=300&width=300&text=Sunglasses" },
-  { id: 6, name: "Wristwatch", price: 129.99, category: "Accessories", color: "Silver", size: "One Size", rating: 4.8, image: "/placeholder.svg?height=300&width=300&text=Watch" },
-  { id: 7, name: "Hooded Sweatshirt", price: 49.99, category: "Clothing", color: "Gray", size: "L", rating: 4.4, image: "/placeholder.svg?height=300&width=300&text=Sweatshirt" },
-  { id: 8, name: "Backpack", price: 69.99, category: "Accessories", color: "Navy", size: "One Size", rating: 4.6, image: "/placeholder.svg?height=300&width=300&text=Backpack" },
-]
+
 
 const categories = ["All", "Clothing", "Footwear", "Accessories"]
 const colors = ["White", "Black", "Blue", "Brown", "Gray", "Navy", "Silver"]
@@ -56,6 +48,7 @@ export default function ShopPage() {
   const {data:allProducts,isLoading: isProductsLoading}=useGetProductsQuery({})
   const [products, setProducts] = useState<Product[]>([])
 
+  const router=useRouter()
   const {data:allCategories}=useGetCategoriesQuery({})
 
  console.log('products',products);
@@ -277,9 +270,9 @@ const newfilteredProducts = allProducts?.filter((product) => {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedProducts?.map((product: Product) => (
-              <Card title={product?.title} key={product.id} className="w-full max-w-sm  overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card onClick={()=>{router.push(`/product/${product.id}`)}} title={product?.title} key={product.id} className="w-full max-w-sm  overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-4">
                 <div className="aspect-square bg-gray-100 mb-4 overflow-hidden rounded-md">
                   <img src={product.image} alt={product?.title} className="w-full h-full object-cover" />
