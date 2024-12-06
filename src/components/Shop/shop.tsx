@@ -15,6 +15,7 @@ import { Filter, SlidersHorizontal, Star, ShoppingCart, X } from 'lucide-react'
 import { useGetProductsQuery } from "@/services/productApi/productApi"
 import { useGetCategoriesQuery } from "@/services/categoryiesApi/categoryApi"
 import { useRouter } from "next/navigation"
+import { Skeleton } from "../ui/skeleton"
 
 type Product = {
     id: number
@@ -53,6 +54,7 @@ export default function ShopPage() {
 
  console.log('products',products);
  
+ const count=6
 
 
 const newfilteredProducts = allProducts?.filter((product) => {
@@ -270,7 +272,25 @@ const newfilteredProducts = allProducts?.filter((product) => {
           </div>
 
           {/* Product Grid */}
-          <div  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {isProductsLoading? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[...Array(count)].map((_, index) => (
+        <Card key={index} className="w-full max-w-sm overflow-hidden">
+          <CardContent className="p-4">
+            <Skeleton className="aspect-square bg-gray-200 mb-4 rounded-md" />
+            <Skeleton className="h-6 w-3/4 mb-2" />
+            <Skeleton className="h-4 w-1/2 mb-2" />
+            <div className="flex items-center mt-2">
+              <Skeleton className="h-4 w-4 mr-2 rounded-full" />
+              <Skeleton className="h-4 w-10" />
+            </div>
+            <Skeleton className="h-6 w-1/3 mt-2" />
+          </CardContent>
+          <CardFooter>
+            <Skeleton className="w-full h-10" />
+          </CardFooter>
+        </Card>
+      ))}
+    </div>:<div  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayedProducts?.map((product: Product) => (
               <Card onClick={()=>{router.push(`/product/${product.id}`)}} title={product?.title} key={product.id} className="w-full max-w-sm  overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-4">
@@ -294,7 +314,7 @@ const newfilteredProducts = allProducts?.filter((product) => {
             ))}
 
 
-          </div>
+          </div>}
 
           {/* Pagination */}
           <Pagination className="mt-8">

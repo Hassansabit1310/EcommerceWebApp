@@ -10,14 +10,14 @@ import React from 'react'
 function ProductDescriptionPage() {
 
     const params=useParams()
-const {data:singleProduct}=useGetProductByIdQuery(params.productId)
+const {data:singleProduct, isLoading}=useGetProductByIdQuery(params.productId)
 
 console.log(singleProduct);
 
 
   return (
     <>
-    <ProductPage product={singleProduct}/>
+    <ProductPage product={singleProduct} isLoading={isLoading}/>
     <h1>{singleProduct?.title}</h1>
     </>
   )
